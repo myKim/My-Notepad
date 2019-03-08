@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteViewController">
             <connections>
+                <outlet property="messageLabel" destination="Mnd-ne-hUA" id="aX4-db-caV"/>
                 <outlet property="tableView" destination="j1u-Yg-XCT" id="6r0-QC-2Ze"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,6 +36,10 @@
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="uqD-v4-PHM"/>
+                        <barButtonItem enabled="NO" title="message" style="plain" id="Mnd-ne-hUA">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="hQQ-X4-SjF"/>
                         <barButtonItem systemItem="add" id="Emw-19-MJ8">
                             <connections>
                                 <action selector="onAddButtonClicked:" destination="-1" id="b3s-Qg-Y0H"/>

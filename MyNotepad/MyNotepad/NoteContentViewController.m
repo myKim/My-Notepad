@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _textView.text = _note.text;
+    self.textView.text = self.note.text;
 }
 
 /*
@@ -37,7 +37,7 @@
     if (_textView.text == nil || [_textView.text isEqualToString:@""]) {
         NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
     
-        [context deleteObject:_note];
+        [context deleteObject:self.note];
     }
     else {
         [self updateNote];
@@ -45,8 +45,8 @@
 }
 
 -(void)updateNote {
-    _note.text = _textView.text;
-    _note.editDate = [NSDate date];
+    self.note.text = self.textView.text;
+    self.note.editDate = [NSDate date];
     
     [((AppDelegate *)[[UIApplication sharedApplication] delegate]) saveContext];
 }

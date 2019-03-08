@@ -11,6 +11,8 @@
 		B974E7E1222F9A7300AEA888 /* Note+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B974E7DF222F9A7300AEA888 /* Note+CoreDataProperties.m */; };
 		B974E7E5222FA5E400AEA888 /* NoteContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B974E7E3222FA5E400AEA888 /* NoteContentViewController.m */; };
 		B974E7E6222FA5E400AEA888 /* NoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B974E7E4222FA5E400AEA888 /* NoteContentViewController.xib */; };
+		B9858B2D223248AA00C93817 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9858B2B223248AA00C93817 /* NoteTableViewCell.m */; };
+		B9858B2E223248AA00C93817 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9858B2C223248AA00C93817 /* NoteTableViewCell.xib */; };
 		B9F31A6C222E601E00F6A026 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F31A6B222E601E00F6A026 /* AppDelegate.m */; };
 		B9F31A75222E601E00F6A026 /* MyNotepad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9F31A73222E601E00F6A026 /* MyNotepad.xcdatamodeld */; };
 		B9F31A77222E601E00F6A026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F31A76222E601E00F6A026 /* Assets.xcassets */; };
@@ -49,6 +51,9 @@
 		B974E7E2222FA5E400AEA888 /* NoteContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteContentViewController.h; sourceTree = "<group>"; };
 		B974E7E3222FA5E400AEA888 /* NoteContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteContentViewController.m; sourceTree = "<group>"; };
 		B974E7E4222FA5E400AEA888 /* NoteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteContentViewController.xib; sourceTree = "<group>"; };
+		B9858B2A223248AA00C93817 /* NoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
+		B9858B2B223248AA00C93817 /* NoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
+		B9858B2C223248AA00C93817 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		B9F31A67222E601E00F6A026 /* MyNotepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F31A6A222E601E00F6A026 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9F31A6B222E601E00F6A026 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -155,6 +160,9 @@
 				B974E7E2222FA5E400AEA888 /* NoteContentViewController.h */,
 				B974E7E3222FA5E400AEA888 /* NoteContentViewController.m */,
 				B974E7E4222FA5E400AEA888 /* NoteContentViewController.xib */,
+				B9858B2A223248AA00C93817 /* NoteTableViewCell.h */,
+				B9858B2B223248AA00C93817 /* NoteTableViewCell.m */,
+				B9858B2C223248AA00C93817 /* NoteTableViewCell.xib */,
 			);
 			path = MyNotepad;
 			sourceTree = "<group>";
@@ -280,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9858B2E223248AA00C93817 /* NoteTableViewCell.xib in Resources */,
 				B9F31AA8222E606400F6A026 /* NoteViewController.xib in Resources */,
 				B9F31A7A222E601E00F6A026 /* LaunchScreen.storyboard in Resources */,
 				B974E7E6222FA5E400AEA888 /* NoteContentViewController.xib in Resources */,
@@ -317,6 +326,7 @@
 				B9F31AA7222E606400F6A026 /* NoteViewController.m in Sources */,
 				B974E7E5222FA5E400AEA888 /* NoteContentViewController.m in Sources */,
 				B9F31A75222E601E00F6A026 /* MyNotepad.xcdatamodeld in Sources */,
+				B9858B2D223248AA00C93817 /* NoteTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

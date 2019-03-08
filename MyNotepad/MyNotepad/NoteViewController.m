@@ -8,39 +8,52 @@
 
 #import "NoteViewController.h"
 #import "NoteContentViewController.h"
+#import "NoteTableViewCell.h"
 #import "AppDelegate.h"
+
+
 
 @interface NoteViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray<Note *> *noteArray;
+@property (strong, nonatomic) NSMutableArray<Note *> *noteArray;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *messageLabel;
 
 @end
+
 
 @implementation NoteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    UINib *nib = [UINib nibWithNibName:@"NoteTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"NoteTableViewCellIdentifier"];
+    
+    self.tableView.estimatedRowHeight = 85.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+- (void)updateMemoCountMessage {
+    NSInteger noteCount = self.noteArray ? self.noteArray.count : 0;
+    
+    NSString *message = [[@(noteCount) stringValue] stringByAppendingString:@"개의 노트"];
+    
+    self.messageLabel.title = message;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"viewWillApppear");
-    
     [self loadData];
+    [self updateMemoCountMessage];
 }
 
 - (void)loadData {
-    // get persistentContainer
-    //    NSPersistentContainer *container = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).persistentContainer;
-    NSPersistentContainer *container = [AppDelegate persistentContainer];
-    
     // get context (suitable only for use on the main queue)
-    NSManagedObjectContext *context = container.viewContext;
+    NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
     
-    // get Data
+    // get data
     __block NSArray<Note *> * result = nil;
     [context performBlockAndWait:^{
         NSFetchRequest *request = [Note fetchRequest];
@@ -53,8 +66,8 @@
             NSLog(@"Unresolved Error : %@", error);
         }
     }];
-    self.noteArray = result;
     
+    self.noteArray = [result mutableCopy];
     [self.tableView reloadData];
 }
 
@@ -73,35 +86,38 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _noteArray.count;
+    return self.noteArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"cellIdentifier";
+    // Get note data
+    Note *note = self.noteArray[indexPath.row];
+    NSString *noteText = note.text;
+    NSString *noteEditDate = [self convertDateToString:note.editDate];
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    // Set note data on cell
+    NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteTableViewCellIdentifier"];
     
-    if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    NSString *text;
-    text = _noteArray[indexPath.row].text;
-    
-    NSDate *date = _noteArray[indexPath.row].editDate;
-//    if(date != nil) {
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-//        text = [dateFormatter stringFromDate:date];
-//    }
-    cell.textLabel.text = text;
+    cell.noteText.text = noteText;
+    cell.noteEditDate.text = noteEditDate;
     
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *title;
+- (NSString *)convertDateToString:(NSDate *)date {
+    NSString *text = @"";
+    
+    if(date != nil) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+        text = [dateFormatter stringFromDate:date];
+    }
+    return text;
+}
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    // Set section titles
+    NSString *title;
     switch (section) {
         case 0:
             title = @"Notes";
@@ -113,48 +129,65 @@
     return title;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // deselect row
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    /////////////////////
-    Note *note = _noteArray[indexPath.row];
-
-    NoteContentViewController *viewController = [[NoteContentViewController alloc] initWithNibName:@"NoteContentViewController" bundle:nil];
-
-    viewController.note = note;
-
-    [self.navigationController pushViewController:viewController animated:YES];
-    /////////////////////
-    
-//    NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
-//
-//    [context deleteObject:note];
-//    [self loadData];
-    
+// for delete row
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        Note *note = self.noteArray[indexPath.row];
+        
+        // Remove note item in array
+        [self.noteArray removeObjectAtIndex:indexPath.row];
+        
+        // Remove note item in UITableView
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [tableView endUpdates];
+        
+        // Remove note item in core data context
+        NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
+        [context deleteObject:note];
+        [((AppDelegate *)[[UIApplication sharedApplication] delegate]) saveContext];
+        
+        [self updateMemoCountMessage];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Deselect row
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    // Get selected note
+    Note *note = self.noteArray[indexPath.row];
+
+    // Show note content view
+    NoteContentViewController *viewController = [[NoteContentViewController alloc] initWithNibName:@"NoteContentViewController" bundle:nil];
+    viewController.note = note;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 80.0f;
+//}
+
+// Action Event Callback Methods
 - (IBAction)onAddButtonClicked:(UIBarButtonItem *)sender {
     NSLog(@"Add button Clicked");
     
+    // Create a note object
     NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
     
     Note *note = [[Note alloc] initWithContext:context];
     note.text = @"";
-    note.regDate = [NSDate date];
-    note.editDate = [NSDate date];
+    NSDate *currentDate = [NSDate date];
+    note.regDate = currentDate;
+    note.editDate = currentDate;
     
-    
-    
-//    _noteArray = [_noteArray arrayByAddingObject:note];
-//    [_noteArray addObject:note];
-    
-////    _noteArray = [_noteArray arrayByAddingObject:note];
-//
+    // Show note content view
     NoteContentViewController *viewController = [[NoteContentViewController alloc] initWithNibName:@"NoteContentViewController" bundle:nil];
-
     viewController.note = note;
-
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

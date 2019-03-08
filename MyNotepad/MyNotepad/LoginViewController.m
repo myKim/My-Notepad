@@ -16,13 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (IBAction)onTestButtonClicked:(UIButton *)sender {
     NoteViewController *viewController = [[NoteViewController alloc] initWithNibName:@"NoteViewController" bundle:nil];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-//    [viewController]
     
     [[UIApplication sharedApplication].keyWindow setRootViewController:navigationController];
     [self presentViewController:navigationController animated:YES completion:nil];
