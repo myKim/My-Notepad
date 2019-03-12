@@ -57,6 +57,11 @@
     __block NSArray<Note *> * result = nil;
     [context performBlockAndWait:^{
         NSFetchRequest *request = [Note fetchRequest];
+        // id check
+        //request.predicate = [NSPredicate predicateWithFormat:@"text = %@", @"1"];
+        //
+        
+        
         NSSortDescriptor *regDateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"regDate" ascending:YES];
         request.sortDescriptors = @[regDateSortDescriptor];
         NSError *error = nil;
@@ -189,6 +194,15 @@
     NoteContentViewController *viewController = [[NoteContentViewController alloc] initWithNibName:@"NoteContentViewController" bundle:nil];
     viewController.note = note;
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (IBAction)onLogoutButtonClicked:(UIBarButtonItem *)sender {
+    LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+//    UINavigationController  *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+//    [[UIApplication sharedApplication].keyWindow setRootViewController:viewController];
+    [self presentViewController:viewController animated:YES completion:nil];
+    
 }
 
 @end

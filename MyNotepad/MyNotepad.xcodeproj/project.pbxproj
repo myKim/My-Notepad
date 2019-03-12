@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E3727095CB1F8C40834FBAA /* libPods-MyNotepadUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D54BE225205457CE4BBAC32 /* libPods-MyNotepadUITests.a */; };
 		B974E7E0222F9A7300AEA888 /* Note+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = B974E7DE222F9A7300AEA888 /* Note+CoreDataClass.m */; };
 		B974E7E1222F9A7300AEA888 /* Note+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B974E7DF222F9A7300AEA888 /* Note+CoreDataProperties.m */; };
 		B974E7E5222FA5E400AEA888 /* NoteContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B974E7E3222FA5E400AEA888 /* NoteContentViewController.m */; };
 		B974E7E6222FA5E400AEA888 /* NoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B974E7E4222FA5E400AEA888 /* NoteContentViewController.xib */; };
+		B983DD632236402C00D6DAA3 /* FacebookLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B983DD622236402C00D6DAA3 /* FacebookLoginButton.m */; };
 		B9858B2D223248AA00C93817 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9858B2B223248AA00C93817 /* NoteTableViewCell.m */; };
 		B9858B2E223248AA00C93817 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9858B2C223248AA00C93817 /* NoteTableViewCell.xib */; };
 		B9F31A6C222E601E00F6A026 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F31A6B222E601E00F6A026 /* AppDelegate.m */; };
@@ -24,6 +26,8 @@
 		B9F31AA3222E605400F6A026 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F31AA1222E605400F6A026 /* LoginViewController.xib */; };
 		B9F31AA7222E606400F6A026 /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F31AA5222E606400F6A026 /* NoteViewController.m */; };
 		B9F31AA8222E606400F6A026 /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9F31AA6222E606400F6A026 /* NoteViewController.xib */; };
+		D84DA57764699CE1BB991634 /* libPods-MyNotepadTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740B22AD89C121B9DB31EA6A /* libPods-MyNotepadTests.a */; };
+		E203CE75DE3AB214E0564F50 /* libPods-MyNotepad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E55CC701E1312AFF292E1C9 /* libPods-MyNotepad.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E55CC701E1312AFF292E1C9 /* libPods-MyNotepad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyNotepad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1741B747BBD8568A6985EEDB /* Pods-MyNotepadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotepadTests.release.xcconfig"; path = "Target Support Files/Pods-MyNotepadTests/Pods-MyNotepadTests.release.xcconfig"; sourceTree = "<group>"; };
+		21FB671B004254160F6F391B /* Pods-MyNotepad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotepad.debug.xcconfig"; path = "Target Support Files/Pods-MyNotepad/Pods-MyNotepad.debug.xcconfig"; sourceTree = "<group>"; };
+		25EC610A37CDA2959CEE7825 /* Pods-MyNotepadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotepadTests.debug.xcconfig"; path = "Target Support Files/Pods-MyNotepadTests/Pods-MyNotepadTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5D54BE225205457CE4BBAC32 /* libPods-MyNotepadUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyNotepadUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		701C2426C9D616E315806BBA /* Pods-MyNotepadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotepadUITests.release.xcconfig"; path = "Target Support Files/Pods-MyNotepadUITests/Pods-MyNotepadUITests.release.xcconfig"; sourceTree = "<group>"; };
+		740B22AD89C121B9DB31EA6A /* libPods-MyNotepadTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyNotepadTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B974E7DC222F9A7300AEA888 /* Note+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Note+CoreDataProperties.h"; sourceTree = "<group>"; };
 		B974E7DD222F9A7300AEA888 /* Note+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Note+CoreDataClass.h"; sourceTree = "<group>"; };
 		B974E7DE222F9A7300AEA888 /* Note+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Note+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -51,6 +62,8 @@
 		B974E7E2222FA5E400AEA888 /* NoteContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteContentViewController.h; sourceTree = "<group>"; };
 		B974E7E3222FA5E400AEA888 /* NoteContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteContentViewController.m; sourceTree = "<group>"; };
 		B974E7E4222FA5E400AEA888 /* NoteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteContentViewController.xib; sourceTree = "<group>"; };
+		B983DD612236402C00D6DAA3 /* FacebookLoginButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookLoginButton.h; sourceTree = "<group>"; };
+		B983DD622236402C00D6DAA3 /* FacebookLoginButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginButton.m; sourceTree = "<group>"; };
 		B9858B2A223248AA00C93817 /* NoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
 		B9858B2B223248AA00C93817 /* NoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
 		B9858B2C223248AA00C93817 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
@@ -74,6 +87,8 @@
 		B9F31AA4222E606400F6A026 /* NoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		B9F31AA5222E606400F6A026 /* NoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		B9F31AA6222E606400F6A026 /* NoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
+		D5BDDB392D1B03185470B7A6 /* Pods-MyNotepadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotepadUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyNotepadUITests/Pods-MyNotepadUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D79B396DDFBFE0C53C681605 /* Pods-MyNotepad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotepad.release.xcconfig"; path = "Target Support Files/Pods-MyNotepad/Pods-MyNotepad.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E203CE75DE3AB214E0564F50 /* libPods-MyNotepad.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84DA57764699CE1BB991634 /* libPods-MyNotepadTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,12 +112,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E3727095CB1F8C40834FBAA /* libPods-MyNotepadUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		414FA4CD828A5FE892E66EA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E55CC701E1312AFF292E1C9 /* libPods-MyNotepad.a */,
+				740B22AD89C121B9DB31EA6A /* libPods-MyNotepadTests.a */,
+				5D54BE225205457CE4BBAC32 /* libPods-MyNotepadUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B974E7BB222F720B00AEA888 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +148,15 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		B983DD6022363FB800D6DAA3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B983DD612236402C00D6DAA3 /* FacebookLoginButton.h */,
+				B983DD622236402C00D6DAA3 /* FacebookLoginButton.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B9F31A5E222E601E00F6A026 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +164,8 @@
 				B9F31A85222E601E00F6A026 /* MyNotepadTests */,
 				B9F31A90222E601E00F6A026 /* MyNotepadUITests */,
 				B9F31A68222E601E00F6A026 /* Products */,
+				CCEAB0D8516074812E41BC3B /* Pods */,
+				414FA4CD828A5FE892E66EA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +182,7 @@
 		B9F31A69222E601E00F6A026 /* MyNotepad */ = {
 			isa = PBXGroup;
 			children = (
+				B983DD6022363FB800D6DAA3 /* Components */,
 				B974E7BB222F720B00AEA888 /* CoreData */,
 				B9F31A6A222E601E00F6A026 /* AppDelegate.h */,
 				B9F31A6B222E601E00F6A026 /* AppDelegate.m */,
@@ -185,6 +225,19 @@
 			path = MyNotepadUITests;
 			sourceTree = "<group>";
 		};
+		CCEAB0D8516074812E41BC3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21FB671B004254160F6F391B /* Pods-MyNotepad.debug.xcconfig */,
+				D79B396DDFBFE0C53C681605 /* Pods-MyNotepad.release.xcconfig */,
+				25EC610A37CDA2959CEE7825 /* Pods-MyNotepadTests.debug.xcconfig */,
+				1741B747BBD8568A6985EEDB /* Pods-MyNotepadTests.release.xcconfig */,
+				D5BDDB392D1B03185470B7A6 /* Pods-MyNotepadUITests.debug.xcconfig */,
+				701C2426C9D616E315806BBA /* Pods-MyNotepadUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9F31A96222E601E00F6A026 /* Build configuration list for PBXNativeTarget "MyNotepad" */;
 			buildPhases = (
+				F22A928E692377E362BBEC37 /* [CP] Check Pods Manifest.lock */,
 				B9F31A63222E601E00F6A026 /* Sources */,
 				B9F31A64222E601E00F6A026 /* Frameworks */,
 				B9F31A65222E601E00F6A026 /* Resources */,
+				00F7315D1A68691A6179B41E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +264,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9F31A99222E601E00F6A026 /* Build configuration list for PBXNativeTarget "MyNotepadTests" */;
 			buildPhases = (
+				4627A8F638DDF98823BFC4B0 /* [CP] Check Pods Manifest.lock */,
 				B9F31A7E222E601E00F6A026 /* Sources */,
 				B9F31A7F222E601E00F6A026 /* Frameworks */,
 				B9F31A80222E601E00F6A026 /* Resources */,
@@ -227,6 +283,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9F31A9C222E601E00F6A026 /* Build configuration list for PBXNativeTarget "MyNotepadUITests" */;
 			buildPhases = (
+				30B47145BAB394416A011275 /* [CP] Check Pods Manifest.lock */,
 				B9F31A89222E601E00F6A026 /* Sources */,
 				B9F31A8A222E601E00F6A026 /* Frameworks */,
 				B9F31A8B222E601E00F6A026 /* Resources */,
@@ -313,6 +370,97 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00F7315D1A68691A6179B41E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyNotepad/Pods-MyNotepad-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyNotepad/Pods-MyNotepad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30B47145BAB394416A011275 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyNotepadUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4627A8F638DDF98823BFC4B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyNotepadTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F22A928E692377E362BBEC37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyNotepad-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B9F31A63222E601E00F6A026 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -327,6 +475,7 @@
 				B974E7E5222FA5E400AEA888 /* NoteContentViewController.m in Sources */,
 				B9F31A75222E601E00F6A026 /* MyNotepad.xcdatamodeld in Sources */,
 				B9858B2D223248AA00C93817 /* NoteTableViewCell.m in Sources */,
+				B983DD632236402C00D6DAA3 /* FacebookLoginButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +577,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -480,6 +630,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -487,6 +638,7 @@
 		};
 		B9F31A97222E601E00F6A026 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21FB671B004254160F6F391B /* Pods-MyNotepad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -503,6 +655,7 @@
 		};
 		B9F31A98222E601E00F6A026 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D79B396DDFBFE0C53C681605 /* Pods-MyNotepad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -519,6 +672,7 @@
 		};
 		B9F31A9A222E601E00F6A026 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25EC610A37CDA2959CEE7825 /* Pods-MyNotepadTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -537,6 +691,7 @@
 		};
 		B9F31A9B222E601E00F6A026 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1741B747BBD8568A6985EEDB /* Pods-MyNotepadTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -555,6 +710,7 @@
 		};
 		B9F31A9D222E601E00F6A026 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5BDDB392D1B03185470B7A6 /* Pods-MyNotepadUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MyNotepadUITests/Info.plist;
@@ -572,6 +728,7 @@
 		};
 		B9F31A9E222E601E00F6A026 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 701C2426C9D616E315806BBA /* Pods-MyNotepadUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MyNotepadUITests/Info.plist;
