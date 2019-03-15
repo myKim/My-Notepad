@@ -39,7 +39,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <!-- for Facebook -->
+    <!-- { for Facebook -->
     <key>CFBundleURLTypes</key>
     <array>
         <dict>
@@ -61,6 +61,6 @@
         <string>fbauth2</string>
         <string>fbshareextension</string>
     </array>
-    
+    <!-- for Facebook } -->
 </dict>
 </plist>

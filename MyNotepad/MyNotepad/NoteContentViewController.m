@@ -25,7 +25,6 @@
     self.textView.text = self.note.text;
 }
 
-
 - (void)viewWillDisappear:(BOOL)animated {
     if (self.textView.text == nil || [self.textView.text isEqualToString:@""]) {
         NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
@@ -36,6 +35,9 @@
         [self updateNote];
     }
 }
+
+
+#pragma mark - Methods
 
 -(void)updateNote {
     self.note.text = self.textView.text;

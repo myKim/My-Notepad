@@ -9,8 +9,8 @@
 #import "NoteViewController.h"
 #import "NoteContentViewController.h"
 #import "NoteTableViewCell.h"
-#import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 // Frameworks
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Set Layout
+    // initialize the layout
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -44,13 +44,13 @@
     self.tableView.estimatedRowHeight = 85.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    // Set Message Label
+    // Set message label
     self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 35)];
     [self.messageLabel setFont:[UIFont systemFontOfSize:12]];
     self.messageLabel.textAlignment = NSTextAlignmentCenter;
     self.messageLabelItem.customView = self.messageLabel;
     
-    // Set user data.
+    // Get and set user data.
     dispatch_async(dispatch_get_main_queue(), ^{
         [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile *profile, NSError *error) {
             
@@ -90,12 +90,19 @@
     });
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    if(self.fbSdkProfile) {
+        [self loadData];
+    }
+}
 
-#pragma mark - Event handlers
+
+#pragma mark - Event Handler Methods
+
 - (void)onProfileImageTapped:(id)sender {
     NSLog(@"Event: The Profile image is tapped.");
 }
-         
+
 - (void)onLogoutButtonClicked:(id)sender {
     NSLog(@"Event: Logout button is clicked.");
     FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
@@ -106,49 +113,28 @@
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
-
-- (void)updateMemoCountMessage {
-    NSInteger noteCount = self.noteArray ? self.noteArray.count : 0;
+// Action Event Callback Methods
+- (IBAction)onAddButtonClicked:(id)sender {
+    NSLog(@"Event: Add button Clicked");
     
-    NSString *message = [[@(noteCount) stringValue] stringByAppendingString:@"개의 노트"];
-    
-    self.messageLabel.text = message;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    if(self.fbSdkProfile) {
-        [self loadData];
-    }
-}
-
-- (void)loadData {
-    // get context (suitable only for use on the main queue)
+    // Create a note object
     NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
     
-    // get data
-    __block NSArray<Note *> * result = nil;
-    [context performBlockAndWait:^{
-        NSFetchRequest *request = [Note fetchRequest];
-        // id check
-        NSLog(@"my profile: %@", self.fbSdkProfile);
-        
-        request.predicate = [NSPredicate predicateWithFormat:@"facebookId = %@", self.fbSdkProfile.userID];
-        NSSortDescriptor *regDateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"regDate" ascending:YES];
-        request.sortDescriptors = @[regDateSortDescriptor];
-        NSError *error = nil;
-        
-        result = [context executeFetchRequest:request error:&error];
-        if(error) {
-            NSLog(@"Unresolved Error : %@", error);
-        }
-    }];
+    Note *note = [[Note alloc] initWithContext:context];
+    note.text = @"";
+    NSDate *currentDate = [NSDate date];
+    note.regDate = currentDate;
+    note.editDate = currentDate;
+    note.facebookId = self.fbSdkProfile ? self.fbSdkProfile.userID : @"";
     
-    self.noteArray = [result mutableCopy];
-    [self.tableView reloadData];
-    
-    [self updateMemoCountMessage];
+    // Show note content view
+    NoteContentViewController *viewController = [[NoteContentViewController alloc] initWithNibName:@"NoteContentViewController" bundle:nil];
+    viewController.note = note;
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
+
+#pragma mark - UITableView Delegate Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -171,17 +157,6 @@
     cell.noteEditDate.text = noteEditDate;
     
     return cell;
-}
-
-- (NSString *)convertDateToString:(NSDate *)date {
-    NSString *text = @"";
-    
-    if(date != nil) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-        text = [dateFormatter stringFromDate:date];
-    }
-    return text;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -227,38 +202,63 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Deselect row
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     // Get selected note
     Note *note = self.noteArray[indexPath.row];
-
+    
     // Show note content view
     NoteContentViewController *viewController = [[NoteContentViewController alloc] initWithNibName:@"NoteContentViewController" bundle:nil];
     viewController.note = note;
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 80.0f;
-//}
 
-// Action Event Callback Methods
-- (IBAction)onAddButtonClicked:(id)sender {
-    NSLog(@"Add button Clicked");
-    
-    // Create a note object
+#pragma mark - Methods
+- (void)loadData {
+    // get context (suitable only for use on the main queue)
     NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
     
-    Note *note = [[Note alloc] initWithContext:context];
-    note.text = @"";
-    NSDate *currentDate = [NSDate date];
-    note.regDate = currentDate;
-    note.editDate = currentDate;
-    note.facebookId = self.fbSdkProfile ? self.fbSdkProfile.userID : @"";
+    // get data
+    __block NSArray<Note *> * result = nil;
+    [context performBlockAndWait:^{
+        NSFetchRequest *request = [Note fetchRequest];
+        // id check
+        NSLog(@"my profile: %@", self.fbSdkProfile);
+        
+        request.predicate = [NSPredicate predicateWithFormat:@"facebookId = %@", self.fbSdkProfile.userID];
+        NSSortDescriptor *regDateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"regDate" ascending:YES];
+        request.sortDescriptors = @[regDateSortDescriptor];
+        NSError *error = nil;
+        
+        result = [context executeFetchRequest:request error:&error];
+        if(error) {
+            NSLog(@"Unresolved Error : %@", error);
+        }
+    }];
     
-    // Show note content view
-    NoteContentViewController *viewController = [[NoteContentViewController alloc] initWithNibName:@"NoteContentViewController" bundle:nil];
-    viewController.note = note;
-    [self.navigationController pushViewController:viewController animated:YES];
+    self.noteArray = [result mutableCopy];
+    [self.tableView reloadData];
+    
+    [self updateMemoCountMessage];
+}
+
+- (void)updateMemoCountMessage {
+    NSInteger noteCount = self.noteArray ? self.noteArray.count : 0;
+    
+    NSString *message = [[@(noteCount) stringValue] stringByAppendingString:@"개의 노트"];
+    
+    self.messageLabel.text = message;
+}
+
+- (NSString *)convertDateToString:(NSDate *)date {
+    NSString *text = @"";
+    
+    if(date != nil) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+        text = [dateFormatter stringFromDate:date];
+    }
+    return text;
 }
 
 @end

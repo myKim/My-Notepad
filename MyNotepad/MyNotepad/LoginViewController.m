@@ -16,11 +16,12 @@
 
 @interface LoginViewController ()
 
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *facebookLoginButton;
+
 @end
 
 
 @implementation LoginViewController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +32,7 @@
 
 
 #pragma mark - FBSDKLoginButton Delegate Methods
+
 - (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
               error:(NSError *)error {
     
@@ -46,7 +48,7 @@
     }
     else {
         // User logged in successfully.
-        // Take user to next view. (NoteViewController)
+        // Take user to next view. (-> NoteViewController)
         NoteViewController *viewController = [[NoteViewController alloc] initWithNibName:@"NoteViewController" bundle:nil];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
         [self presentViewController:navController animated:YES completion:nil];

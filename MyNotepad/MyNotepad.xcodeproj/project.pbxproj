@@ -12,7 +12,6 @@
 		B974E7E1222F9A7300AEA888 /* Note+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B974E7DF222F9A7300AEA888 /* Note+CoreDataProperties.m */; };
 		B974E7E5222FA5E400AEA888 /* NoteContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B974E7E3222FA5E400AEA888 /* NoteContentViewController.m */; };
 		B974E7E6222FA5E400AEA888 /* NoteContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B974E7E4222FA5E400AEA888 /* NoteContentViewController.xib */; };
-		B983DD632236402C00D6DAA3 /* FacebookLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B983DD622236402C00D6DAA3 /* FacebookLoginButton.m */; };
 		B9858B2D223248AA00C93817 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9858B2B223248AA00C93817 /* NoteTableViewCell.m */; };
 		B9858B2E223248AA00C93817 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9858B2C223248AA00C93817 /* NoteTableViewCell.xib */; };
 		B9F31A6C222E601E00F6A026 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F31A6B222E601E00F6A026 /* AppDelegate.m */; };
@@ -62,8 +61,6 @@
 		B974E7E2222FA5E400AEA888 /* NoteContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteContentViewController.h; sourceTree = "<group>"; };
 		B974E7E3222FA5E400AEA888 /* NoteContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteContentViewController.m; sourceTree = "<group>"; };
 		B974E7E4222FA5E400AEA888 /* NoteContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteContentViewController.xib; sourceTree = "<group>"; };
-		B983DD612236402C00D6DAA3 /* FacebookLoginButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookLoginButton.h; sourceTree = "<group>"; };
-		B983DD622236402C00D6DAA3 /* FacebookLoginButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginButton.m; sourceTree = "<group>"; };
 		B9858B2A223248AA00C93817 /* NoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
 		B9858B2B223248AA00C93817 /* NoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
 		B9858B2C223248AA00C93817 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
@@ -148,15 +145,6 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		B983DD6022363FB800D6DAA3 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				B983DD612236402C00D6DAA3 /* FacebookLoginButton.h */,
-				B983DD622236402C00D6DAA3 /* FacebookLoginButton.m */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		B9F31A5E222E601E00F6A026 = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +170,6 @@
 		B9F31A69222E601E00F6A026 /* MyNotepad */ = {
 			isa = PBXGroup;
 			children = (
-				B983DD6022363FB800D6DAA3 /* Components */,
 				B974E7BB222F720B00AEA888 /* CoreData */,
 				B9F31A6A222E601E00F6A026 /* AppDelegate.h */,
 				B9F31A6B222E601E00F6A026 /* AppDelegate.m */,
@@ -475,7 +462,6 @@
 				B974E7E5222FA5E400AEA888 /* NoteContentViewController.m in Sources */,
 				B9F31A75222E601E00F6A026 /* MyNotepad.xcdatamodeld in Sources */,
 				B9858B2D223248AA00C93817 /* NoteTableViewCell.m in Sources */,
-				B983DD632236402C00D6DAA3 /* FacebookLoginButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

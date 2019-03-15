@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
-                <outlet property="facebookLoginButton" destination="1B4-Ls-qfK" id="QOU-5v-3wh"/>
+                <outlet property="facebookLoginButton" destination="1B4-Ls-qfK" id="sCl-K9-Isv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
