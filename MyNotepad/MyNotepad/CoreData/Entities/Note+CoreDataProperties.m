@@ -18,5 +18,6 @@
 @dynamic editDate;
 @dynamic regDate;
 @dynamic text;
+@dynamic facebookId;
 
 @end

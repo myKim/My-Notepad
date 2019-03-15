@@ -9,11 +9,13 @@
 #import "NoteContentViewController.h"
 #import "AppDelegate.h"
 
+
 @interface NoteContentViewController ()
 
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 
 @end
+
 
 @implementation NoteContentViewController
 
@@ -23,18 +25,9 @@
     self.textView.text = self.note.text;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)viewWillDisappear:(BOOL)animated {
-    if (_textView.text == nil || [_textView.text isEqualToString:@""]) {
+    if (self.textView.text == nil || [self.textView.text isEqualToString:@""]) {
         NSManagedObjectContext *context = AppDelegate.persistentContainer.viewContext;
     
         [context deleteObject:self.note];

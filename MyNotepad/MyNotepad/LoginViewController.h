@@ -7,14 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NoteViewController.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@interface LoginViewController : UIViewController<FBSDKLoginButtonDelegate>
 
-@interface LoginViewController : UIViewController
-{
-    int facebookLogin;
-}
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *facebookLoginButton;
+
 @end
-
-NS_ASSUME_NONNULL_END

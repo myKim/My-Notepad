@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Note+CoreDataProperties.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface NoteContentViewController : UIViewController
 
 @property (strong, nonatomic) Note *note;
 
 @end
-
-NS_ASSUME_NONNULL_END

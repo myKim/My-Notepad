@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "NoteViewController.h"
+
+// Frameworks
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AppDelegate ()
@@ -17,19 +21,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    self.window.rootViewController = viewController;
-    [self.window makeKeyAndVisible];
-    
-    
+
     // For Facebook
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    // Add any custom logic here.
+    
+    if(![FBSDKAccessToken currentAccessToken]) {
+        // Show LoginView
+        LoginViewController *viewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        self.window.rootViewController = viewController;
+    }
+    else {
+        // Show NoteView
+        NoteViewController *viewController = [[NoteViewController alloc] initWithNibName:@"NoteViewController" bundle:nil];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+        self.window.rootViewController = navController;
+    }
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
@@ -101,6 +111,7 @@
     return ((AppDelegate *)[[UIApplication sharedApplication] delegate]).persistentContainer;
 }
 
+
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
@@ -114,7 +125,9 @@
     }
 }
 
+
 #pragma mark - Facebook login
+
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {

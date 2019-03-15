@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSDate *editDate;
 @property (nullable, nonatomic, copy) NSDate *regDate;
 @property (nullable, nonatomic, copy) NSString *text;
+@property (nullable, nonatomic, copy) NSString *facebookId;
 
 @end
 
